@@ -8,8 +8,12 @@ font-family: 'Great Vibes', cursive;
 font-family: 'Indie Flower', cursive;
 font-family: 'Nothing You Could Do', cursive;
 font-family: 'Shadows Into Light', cursive; 
-    font-family: 'Kalam', cursive;
+font-family: 'Kalam', cursive;
 */
+.logo{
+    font-family: 'Caveat', cursive;
+
+}
 .pagenotfound h2 {
     font-family: 'Creepster', cursive;
 }

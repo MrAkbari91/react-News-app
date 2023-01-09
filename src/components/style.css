@@ -13,3 +13,23 @@ font-family: 'Shadows Into Light', cursive;
 .pagenotfount {
   font-family: 'Nothing You Could Do', cursive;
 }
+
+.news-card-heading {
+  overflow: hidden;
+  max-height: 8rem;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+}
+
+.news-card-description {
+  overflow: hidden;
+  max-height: 8rem;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 5;
+}

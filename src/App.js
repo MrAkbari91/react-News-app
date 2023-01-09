@@ -1,5 +1,6 @@
-import React, { useState, useEffect, Component } from 'react';
+import React, {Component } from 'react';
 import './App.css';
+import './components/style.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
@@ -15,13 +16,13 @@ export default class App extends Component {
     return (
       <Router>
         <div className='dark:bg-gray-700 dark:text-gray-100'>
-          <Navbar logo='TextConvert' nav1='Home' nav4='Contact Us' />
+          <Navbar logo='News Valuation' nav1='Home' nav2="About" nav3='Contact Us' />
           <Routes>
             <Route exact path='/' element={<News />}></Route>
             <Route path='*' element={<PageNotFound />}></Route>
           </Routes>
 
-          <Footer logo='TextConvert' nav1='Home' nav2='Binary' nav3='QRcode' />
+          <Footer logo='News Valuation' nav1='Home' nav2="About" nav3='Contact Us' />
         </div>
       </Router>
     )
