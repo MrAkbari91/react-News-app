@@ -1,26 +1,29 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom';
+import newsimgurl from './images/fake-news-image.jpg'
 
 
 export default class NewsItem extends Component {
     render() {
-        let { title, description, imgurl, publishedAt } = this.props
+        let { title, description, imgurl, publishedAt, link } = this.props
         return (
 
-            <div className="sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5 p-4">
-                <div className="bg-white rounded-lg border shadow-md max-w-xs md:max-w-none overflow-hidden grid-cols-4	">
-                    <img className="h-56 lg:h-60 w-full object-cover" src={imgurl} alt="" />
-                    <div className="p-3">
-                        <span className="text-sm text-primary text-gray-400">{publishedAt}</span>
-                        <h3 className="font-semibold text-xl leading-6 text-gray-700 my-2 news-card-heading min-h-[120px]">
-                            {title}
-                        </h3>
-                        <p className="paragraph-normal text-gray-600 text-ellipsis overflow-hidden news-card-description">
-                            {description}
-                        </p>
-                        {/* <Link className="mt-3 block" to="{newsUrl}">Read More >></Link> */}
+            <div className="sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4">
+                <a href={link} target="_blank" rel="noreferrer">
+                    <div className="bg-white rounded-lg border shadow-md max-w-xs md:max-w-none overflow-hidden grid-cols-4	">
+                        <img className="h-56 lg:h-60 w-full object-cover" src={imgurl} alt="" />
+                        <div className="p-3 h-[280px]">
+                            <span className="text-sm text-primary text-gray-400">{publishedAt}</span>
+                            <h3 className="font-semibold text-xl leading-6 text-gray-700 my-2 news-card-heading">
+                                {title}
+                            </h3>
+                            <p className="paragraph-normal text-gray-600 text-ellipsis overflow-hidden news-card-description">
+                                {description}
+                            </p>
+                            {/* <Link className="mt-3 block" to="{newsUrl}">Read More >></Link> */}
+                        </div>
                     </div>
-                </div>
+                </a>
             </div >
 
             // <div className='grid justify-center md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7 my-10'>
