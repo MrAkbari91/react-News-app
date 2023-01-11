@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom';
-import newsimgurl from './images/fake-news-image.jpg'
 
 
 export default class NewsItem extends Component {
@@ -11,7 +10,7 @@ export default class NewsItem extends Component {
             <div className="sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4">
                 <a href={link} target="_blank" rel="noreferrer">
                     <div className="bg-white rounded-lg border shadow-md max-w-xs md:max-w-none overflow-hidden grid-cols-4	">
-                        <img className="h-56 lg:h-60 w-full object-cover" src={imgurl} alt="" />
+                        <img className="h-56 lg:h-60 w-full object-cover" src={!imgurl ? "https://fdn.gsmarena.com/imgroot/news/21/08/xiaomi-smart-home-india-annoucnements/-476x249w4/gsmarena_00.jpg" : imgurl} alt="" />
                         <div className="p-3 h-[280px]">
                             <span className="text-sm text-primary text-gray-400">{publishedAt}</span>
                             <h3 className="font-semibold text-xl leading-6 text-gray-700 my-2 news-card-heading">

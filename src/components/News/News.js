@@ -1,23 +1,10 @@
 import { Spinner } from 'flowbite-react';
 import React, { Component } from 'react'
 import NewsItem from './NewsItem'
+import PropTypes from 'prop-types'
+
 
 export default class News extends Component {
-  // newsappi
-  // {
-  //   'source': {
-  //   'id': null,
-  //   'name': 'NDTV News'
-  //   },
-  //   'author': null,
-  //   'title': '\'Distressing Images Of Injured Cricketer\': TV Channels Warned On Reportage - NDTV',
-  //   'description': 'The government on Monday termed the television news coverage of cricketer Rishabh Pant's road accident and some other crime stories \'distasteful\' and \'heart-wrenching\'.',
-  //   'url': 'https://www.ndtv.com/india-news/rishabh-pant-crash-crime-story-coverage-distasteful-centre-to-tv-channels-3676254',
-  //   'urlToImage': 'https://c.ndtvimg.com/2022-12/r3lvhg7_rishabh-pant_625x300_30_December_22.jpg',
-  //   'publishedAt': '2023-01-09T10:26:00Z',
-  //   'content': 'The ministry has \'strongly advised\' television channels to attune their systems.\r\nNew Delhi'
-  //   }
-
   constructor() {
     super();
     this.state = {
@@ -26,13 +13,25 @@ export default class News extends Component {
       page: 1
     }
   }
+  static defaultsProps = {
+    country: 'in',
+    // pageSize: 20,
+    category: 'top',
+    apiKey: 'pub_15464e0c79fbf2f2e24013532c7788dbeb006'
+  }
+  static propTypes = {
+    country: PropTypes.string,
+    category: PropTypes.string,
+    pageSize: PropTypes.number
+  }
 
   // let url = 'https://newsdata.io/api/1/news?apikey=pub_15464e0c79fbf2f2e24013532c7788dbeb006&country=in';   limit = 200
   // let url = 'https://newsapi.org/v2/top-headlines?country=in&apiKey=ad43284cea444327832f0de1a4292f24';      limit = 100
   // let url = 'https://api.publicapis.org/entries';
 
   async componentDidMount() {
-    let url = `https://newsdata.io/api/1/news?apikey=pub_15464e0c79fbf2f2e24013532c7788dbeb006&country=in&page=1`;
+    let url = `https://newsdata.io/api/1/news?apikey=${this.props.apiKey}&country=${this.props.country}&category=${this.props.category}`;
+    // let url = `https://newsdata.io/api/1/news?apikey=${this.props.apiKey}&country=in&page=${this.props.country}`;
     this.setState({ loading: true })
     let data = await fetch(url);
     let json = await data.json();
@@ -44,7 +43,7 @@ export default class News extends Component {
     console.log(json);
   }
   pevbtnclick = async () => {
-    let url = `https://newsdata.io/api/1/news?apikey=pub_15464e0c79fbf2f2e24013532c7788dbeb006&country=in&page=${this.state.page - 1}`;
+    let url = `https://newsdata.io/api/1/news?apikey=${this.props.apiKey}&country=${this.props.country}&category=${this.props.category}&page=${this.state.page - 1}`;
     this.setState({ loading: true })
     let data = await fetch(url);
     let json = await data.json();
@@ -54,13 +53,11 @@ export default class News extends Component {
       totalResults: json.totalResults,
       loading: false
     })
-    console.log(url);
   }
-  nextbtnclick = async () => {
-    if (this.state.page + 1 > Math.ceil(this.state.totalResults / 10)) {
 
-    } else {
-      let url = `https://newsdata.io/api/1/news?apikey=pub_15464e0c79fbf2f2e24013532c7788dbeb006&country=in&page=${this.state.page + 1}`;
+  nextbtnclick = async () => {
+    if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize))) {
+      let url = `https://newsdata.io/api/1/news?apikey=${this.props.apiKey}&country=${this.props.country}&category=${this.props.category}&page=${this.state.page + 1}`;
       this.setState({ loading: true })
       let data = await fetch(url);
       let json = await data.json();
@@ -70,7 +67,6 @@ export default class News extends Component {
         totalResults: json.totalResults,
         loading: false
       })
-    console.log(url);
     }
   }
 
@@ -88,7 +84,7 @@ export default class News extends Component {
   //   })
   // }
   // pevbtnclick = async () => {
-  //   let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=ad43284cea444327832f0de1a4292f24&page=${this.state.page - 1}&pageSize=20`;
+  //       let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.api_key}&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
   //   this.setState({loading:true})
   //   let data = await fetch(url);
   //   let json = await data.json();
@@ -104,7 +100,7 @@ export default class News extends Component {
   //   if (this.state.page + 1 > Math.ceil(this.state.totalResults / 20)) {
 
   //   } else {
-  //     let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=ad43284cea444327832f0de1a4292f24&page=${this.state.page + 1}&pageSize=20`;
+  //     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.api_key}&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
   //     this.setState({loading:true})
   //     let data = await fetch(url);
   //     let json = await data.json();
@@ -115,7 +111,20 @@ export default class News extends Component {
   //       loading: false
   //     })
   //   console.log(url);
-
+  //   }
+  // }
+  // nextbtnclick = async () => {
+  //   console.log("Next");
+  //   if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize))) {
+  //     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=dbe57b028aeb41e285a226a94865f7a7&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+  //     this.setState({ loading: true });
+  //     let data = await fetch(url);
+  //     let parsedData = await data.json()
+  //     this.setState({
+  //       page: this.state.page + 1,
+  //       articles: parsedData.articles,
+  //       loading: false
+  //     })
   //   }
   // }
   render() {
