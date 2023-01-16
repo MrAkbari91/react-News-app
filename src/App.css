@@ -25,3 +25,6 @@ font-family: 'Kalam', cursive;
 .pagenotfound a {
     font-family: 'Nothing You Could Do', cursive;
 }
+.infinite-scroll-component{
+    overflow: hidden!important;
+} 
