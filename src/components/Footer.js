@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 
 export default class Footer extends Component {
     render() {
-        let { logo, nav1, nav2, nav3, } = this.props
+        let { logo, navitem} = this.props
+
         let year = new Date().getFullYear();
 
         return (
@@ -13,15 +14,11 @@ export default class Footer extends Component {
                 <span className='text-sm text-gray-500 sm:text-center dark:text-gray-400'>© {year} <Link to='https://flowbite.com/' className='hover:underline'>{logo}</Link>. All Rights Reserved.
                 </span>
                 <ul className='flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0'>
-                    <li>
-                        <Link to='#' className='mr-4 hover:underline md:mr-6 '>{nav1}</Link>
-                    </li>
-                    <li>
-                        <Link to='#' className='mr-4 hover:underline md:mr-6'>{nav2}</Link>
-                    </li>
-                    <li>
-                        <Link to='#' className='mr-4 hover:underline md:mr-6'>{nav3}</Link>
-                    </li>
+                {
+                                    navitem?.map(menu => (
+                                        <li><Link to={`/${menu}`} className='block py-2 pl-3 pr-4 text-gray-600 rounded md:bg-transparent dark:text-white capitalize' aria-current='page'>{menu}</Link></li>
+                                    ))
+                                }
                 </ul>
             </footer>
 

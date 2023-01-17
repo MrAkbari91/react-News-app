@@ -7,7 +7,7 @@ export default class NewsItem extends Component {
         let { title, description, imgurl, publishedAt, link, source } = this.props
         return (
 
-            <div className='sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4'>
+            // <div className='sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4'>
                 <div className='shadow-md bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700'>
                     <a href={link} target='_blank' rel='noreferrer'>
                         <img className='h-56 lg:h-60 w-full object-cover rounded-t-lg' src={!imgurl ? 'https://fdn.gsmarena.com/imgroot/news/21/08/xiaomi-smart-home-india-annoucnements/-476x249w4/gsmarena_00.jpg' : imgurl} alt='' />
@@ -19,7 +19,7 @@ export default class NewsItem extends Component {
                         </div>
                     </a>
                 </div>
-            </div >
+            // </div >
 
             // <div className='grid justify-center md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7 my-10'>
             // <div>
