@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import './components/style.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
@@ -61,19 +60,19 @@ export default class App extends Component {
     }
   };
 
-  // componentDidMount() {
-  //   if (localStorage.getItem('color-theme')) {
-  //     if (localStorage.getItem('color-theme') === 'light') {
-  //       this.setState({
-  //         theme: 'light'
-  //       });
-  //     } else {
-  //       this.setState({
-  //         theme: 'dark'
-  //       });
-  //     }
-  //   }
-  // }
+  componentDidMount() {
+    if (localStorage.getItem('color-theme')) {
+      if (localStorage.getItem('color-theme') === 'light') {
+        this.setState({
+          theme: 'light'
+        });
+      } else {
+        this.setState({
+          theme: 'dark'
+        });
+      }
+    }
+  }
   render() {
     let navitem = ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology'] //api
     // let navitem = ['business', 'entertainment', 'health', 'science', 'sports', 'technology', 'environment', 'food',  'politics',  'world'] //data
@@ -82,15 +81,14 @@ export default class App extends Component {
     // const api_Key = 'ad43284cea444327832f0de1a4292f24'    //     api = 100    default category = top
     // const api_Key = 'pub_15464e0c79fbf2f2e24013532c7788dbeb006'     //    data = 200
 
-    const api_Key = process.env.REACT_APP_NEWS_API_KEY_NEWSDATA
-    console.log(api_Key);
+    const api_Key = process.env.REACT_APP_NEWS_API_KEY
     return (
       <Router>
         <div className='dark:bg-gray-700 dark:text-gray-100'>
           <Navbar logo='News Valuation' navitem={navitem} darkMode={darkMode} toggleDarkMode={this.toggleDarkMode} />
           <LoadingBar height={3} color='#f11946' progress={this.state.progress} />
           <Routes>
-            <Route exact path='/' element={<News setProgress={this.setProgress} key='top' country='in' category='top' pageSize='20' />}></Route>
+            <Route exact path='/' element={<News setProgress={this.setProgress} key='top' api_Key={api_Key} country='in' category='' pageSize='20' />}></Route>
 
             <Route exact path='/business' element={<News setProgress={this.setProgress} key='business' api_Key={api_Key} country='in' category='business' />}></Route>
             <Route exact path='/entertainment' element={<News setProgress={this.setProgress} key='entertainment' api_Key={api_Key} country='in' category='entertainment' />}></Route>
