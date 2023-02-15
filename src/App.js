@@ -74,21 +74,21 @@ export default class App extends Component {
     }
   }
   render() {
-    let navitem = ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology'] //api
-    // let navitem = ['business', 'entertainment', 'health', 'science', 'sports', 'technology', 'environment', 'food',  'politics',  'world'] //data
+    // let navitem = ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology'] //api
+    let navitem = ['business', 'entertainment', 'health', 'science', 'sports', 'technology', 'environment', 'food',  'politics',  'world'] //data
 
     const { darkMode } = this.state;
     // const api_Key = 'ad43284cea444327832f0de1a4292f24'    //     api = 100    default category = top
-    // const api_Key = 'pub_15464e0c79fbf2f2e24013532c7788dbeb006'     //    data = 200
+    const api_Key = 'pub_15464e0c79fbf2f2e24013532c7788dbeb006'     //    data = 200 make top
 
-    const api_Key ='d093053d72bc40248998159804e0e67d'
+    // const api_Key ='ad43284cea444327832f0de1a4292f24'
     return (
       <Router>
         <div className='dark:bg-gray-700 dark:text-gray-100'>
           <Navbar logo='News Valuation' navitem={navitem} darkMode={darkMode} toggleDarkMode={this.toggleDarkMode} />
           <LoadingBar height={3} color='#f11946' progress={this.state.progress} />
           <Routes>
-            <Route exact path='/' element={<News setProgress={this.setProgress} key='top' api_Key={api_Key} country='in' category='' pageSize='20' />}></Route>
+            <Route exact path='/' element={<News setProgress={this.setProgress} key='top' api_Key={api_Key} country='in' category='top' pageSize='20' />}></Route>
             <Route exact path='/General' element={<News setProgress={this.setProgress} key='top' api_Key={api_Key} country='in' category='' pageSize='20' />}></Route>
 
             <Route exact path='/business' element={<News setProgress={this.setProgress} key='business' api_Key={api_Key} country='in' category='business' />}></Route>
