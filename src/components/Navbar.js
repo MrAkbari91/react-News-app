@@ -1,21 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 
-export class Navbar extends Component {
-    constructor() {
-        super();
-        this.state = {
-            active: null,
-        }
-    }
-    render() {
-        let { logo, navitem, theme, toggleDarkMode } = this.props
+export default function Navbar(props) {
+    // let navitem = ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology'] //api
+    let navitem = ['business', 'entertainment', 'health', 'science', 'sports', 'technology', 'environment', 'food',  'politics',  'world'] //data
+
+        let { theme, toggleDarkMode } = props
         return (
             <div>
                 <nav class='bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 fixed w-full z-10'>
                     <div class='container flex flex-wrap items-center justify-between mx-auto'>
                         <Link to='https://flowbite.com/' className='flex items-center'>
-                            <span className='self-center text-3xl whitespace-nowrap dark:text-white logo'>{logo}</span>
+                            <span className='self-center text-3xl whitespace-nowrap dark:text-white logo'>News Valuation</span>
                         </Link>
                         <div class='flex md:order-2'>
                             <button id='theme-toggle' type='button' onClick={toggleDarkMode} className='text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg p-2.5'>
@@ -42,6 +38,3 @@ export class Navbar extends Component {
             </div>
         )
     }
-}
-
-export default Navbar
