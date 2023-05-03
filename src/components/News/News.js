@@ -20,9 +20,9 @@ export default function News(props) {
 
   // const api_Key = 'ad43284cea444327832f0de1a4292f24'
   // const api_Key ='d093053d72bc40248998159804e0e67d'
-  const api_Key ='4f8bc7f18b1946cd9d502ea18f6b5ffe'
+  // const api_Key ='4f8bc7f18b1946cd9d502ea18f6b5ffe'
   // const api_Key = 'pub_15464e0c79fbf2f2e24013532c7788dbeb006'
-  // const api_Key ='pub_15761798c8ba1de40eebb210f7a77a9a250e5'
+  const api_Key ='pub_15761798c8ba1de40eebb210f7a77a9a250e5'
 
   // let url = 'https://newsdata.io/api/1/news?api_Key=pub_15464e0c79fbf2f2e24013532c7788dbeb006&country=in';   limit = 200
   // let url = 'https://newsapi.org/v2/top-headlines?country=in&api_Key=ad43284cea444327832f0de1a4292f24';      limit = 100
