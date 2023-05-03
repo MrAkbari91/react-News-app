@@ -59,8 +59,8 @@ export default function App() {
         <Navbar darkMode={theme} toggleDarkMode={toggleDarkMode} />
         <LoadingBar height={3} color='#f11946' progress={progress} />
         <Routes>
-          <Route exact path='/' element={<News setProgress={setProgress} key='top' country='in' category='General' pageSize='20' />}></Route>
-          {/* <Route exact path='/General' element={<News setProgress={setProgress} key='top' country='in' category='' pageSize='20' />}></Route> */}
+          <Route exact path='/' element={<News setProgress={setProgress} key='top' country='in' category='top' pageSize='20' />}></Route>
+          <Route exact path='/General' element={<News setProgress={setProgress} key='top' country='in' category='' pageSize='20' />}></Route>
 
           <Route exact path='/business' element={<News setProgress={setProgress} key='business' country='in' category='business' />}></Route>
           <Route exact path='/entertainment' element={<News setProgress={setProgress} key='entertainment' country='in' category='entertainment' />}></Route>
