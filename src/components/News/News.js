@@ -90,8 +90,9 @@ export default function News(props) {
 
 
   return (
-    <div className='container mx-auto'>
-      <h1 className='text-5xl font-semibold py-4 text-center'>News Valuation {TitleCase(props.category)} Headlines</h1>
+    <div className='container mx-auto mt-[80px]'>
+      
+      <h1 className='text-5xl font-semibold py-4 text-center'>Top {TitleCase(props.category)} Headlines</h1>
 
       {loading && <div className='text-center'><Spinner /></div>}
 
@@ -103,7 +104,7 @@ export default function News(props) {
       >
 
         <div className='flex flex-wrap'>
-          {articles.map((element) => {
+          {articles.map((element, index) => {
             return (<div className='sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4'>
               {/* newsapi */}
               {/* <NewsItem key={element.url} title={element.title} description={element.description} imgurl={element.urlToImage} publishedAt={element.publishedAt} link={element.url} source={element.source.name} /> */}
