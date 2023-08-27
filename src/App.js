@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -11,50 +11,23 @@ import LoadingBar from 'react-top-loading-bar';
 
 
 export default function App() {
-  const [theme, setTheme] = useState(null);
   const [progress, setProgress] = useState(0);
+  const [alert, setAlert] = useState(null);
+  const showAlert = (message, type) => {
+    setAlert({
+      message: message,
+      type: type,
+    });
+    setTimeout(() => {
+      setAlert(null);
+    }, 1500);
+  }
 
-
-
-  const toggleDarkMode = () => {
-    if (localStorage.getItem('theme')) {
-      if (localStorage.getItem('theme') === 'light') {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-        setTheme('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-        setTheme('light');
-      }
-      // if NOT set via local storage previously
-    } else {
-      if (document.documentElement.classList.contains('dark')) {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-        setTheme('light');
-      } else {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-        setTheme('dark');
-      }
-    }
-  };
-
-  useEffect(() => {
-    if (localStorage.getItem('theme')) {
-      if (localStorage.getItem('theme') === 'light') {
-        setTheme('light')
-      } else {
-        setTheme('dark')
-      }
-    }
-  }, [])
 
   return (
     <Router>
       <div className='dark:bg-gray-700 dark:text-gray-100'>
-        <Navbar theme={theme} toggleDarkMode={toggleDarkMode} />
+        <Navbar showAlert={showAlert} />
         <LoadingBar height={3} color='#f11946' progress={progress} />
         <Routes>
           <Route exact path='/' element={<News setProgress={setProgress} key='top' country='in' category='top' pageSize='20' />}></Route>
