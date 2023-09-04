@@ -9,7 +9,7 @@ export default function Navbar(props) {
 
     return (
         <>
-            <nav className='bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 fixed w-full z-10 top-0'>
+            <nav className='bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 w-full sticky z-10 top-0'>
                 <div className='container flex flex-wrap items-center justify-between mx-auto'>
                     <Link to='/' className='flex items-center'>
                         <span className='self-center text-3xl whitespace-nowrap dark:text-white logo'>News Valuation</span>

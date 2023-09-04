@@ -12,22 +12,11 @@ import LoadingBar from 'react-top-loading-bar';
 
 export default function App() {
   const [progress, setProgress] = useState(0);
-  const [alert, setAlert] = useState(null);
-  const showAlert = (message, type) => {
-    setAlert({
-      message: message,
-      type: type,
-    });
-    setTimeout(() => {
-      setAlert(null);
-    }, 1500);
-  }
-
 
   return (
     <Router>
-      <div className='dark:bg-gray-700 dark:text-gray-100'>
-        <Navbar showAlert={showAlert} />
+      <div className='dark:bg-gray-800 dark:text-gray-100'>
+        <Navbar />
         <LoadingBar height={3} color='#f11946' progress={progress} />
         <Routes>
           <Route exact path='/' element={<News setProgress={setProgress} key='top' country='in' category='top' pageSize='20' />}></Route>

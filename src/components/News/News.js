@@ -90,7 +90,7 @@ export default function News(props) {
 
 
   return (
-    <div className='container mx-auto mt-[80px]'>
+    <div className='container mx-auto'>
       
       <h1 className='text-5xl font-semibold py-4 text-center'>Top {TitleCase(props.category)} Headlines</h1>
 

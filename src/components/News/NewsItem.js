@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function NewsItem(props) {
 
-    let { title, description, imgurl, publishedAt, link, source, key} = props
+    let { title, description, imgurl, publishedAt, link, source} = props
     const createMarkup = () => {
         return { __html: description };
       };
@@ -12,15 +12,15 @@ export default function NewsItem(props) {
                 className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700" >
                 <a href={link} target='_blank' rel='noreferrer'>
                     <div
-                        className="relative overflow-hidden bg-cover bg-no-repeat"
+                        className={`relative overflow-hidden bg-cover bg-no-repeat h-[161px] ${!imgurl ? 'url(https://fdn.gsmarena.com/imgroot/news/21/08/xiaomi-smart-home-india-annoucnements/-476x249w4/gsmarena_00.jpg)' : ''}`}
                         data-te-ripple-init
                         data-te-ripple-color="light">
                         <img
                             className="rounded-t-lg"
                             src={!imgurl ? 'https://fdn.gsmarena.com/imgroot/news/21/08/xiaomi-smart-home-india-annoucnements/-476x249w4/gsmarena_00.jpg' : imgurl}
-                            alt="" />
-                        <div
-                            className="absolute rounded-t-lg bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
+                            alt="" height={161}  />
+                        {/* <div
+                            className="absolute rounded-t-lg bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div> */}
                     </div>
                     <div className="p-6 relative">
                         <span className='bg-blue-200 text-xs font-medium text-blue-800 text-center p-1 rounded-full px-2 dark:bg-blue-900 dark:text-white absolute -translate-y-1/2 top-0'>{source}</span>
