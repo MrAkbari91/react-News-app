@@ -4,12 +4,11 @@ import DarkModeToggle from './DarkModeToggle';
 
 
 export default function Navbar(props) {
-    //    let navitem = ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology'] //api
     let navitem = ['Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology', 'Environment', 'Food', 'Politics', 'World'] //data
 
     return (
         <>
-            <nav className='bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 w-full sticky z-10 top-0'>
+            <nav className='bg-gray-500 border-gray-200 px-2 sm:px-4 py-4 rounded dark:bg-gray-900 w-full sticky z-10 top-0'>
                 <div className='container flex flex-wrap items-center justify-between mx-auto'>
                     <Link to='/' className='flex items-center'>
                         <span className='self-center text-3xl whitespace-nowrap dark:text-white logo'>News Valuation</span>
@@ -22,7 +21,7 @@ export default function Navbar(props) {
                         </button>
                     </div>
                     <div className='items-center justify-between hidden w-full md:flex md:w-auto md:order-1' id='navbar-cta'>
-                        <ul className='flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700'>
+                        <ul className='flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-gray-200 dark:bg-gray-700 md:dark:bg-gray-700 dark:border-gray-700'>
 
                             <li><Link to='/' className='block py-2 pl-3 pr-4 text-gray-600 rounded md:bg-transparent md:p-0 dark:text-white capitalize' aria-current='page'>Home</Link></li>
                             {
