@@ -43,7 +43,7 @@ const DarkModeToggle = (props) => {
     return (
         <>
             <button id='theme-toggle' type='button' onClick={toggleDarkMode}
-                className='text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg p-2.5'>
+                className='dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg p-2.5'>
                 {theme === 'dark' ? <FaMoon /> : <FaSun />}
             </button>
         </>
