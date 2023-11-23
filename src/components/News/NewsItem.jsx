@@ -1,4 +1,5 @@
 import React from 'react'
+import fakeImage from './images/fake-news-image.jpg'
 
 export default function NewsItem(props) {
 
@@ -12,12 +13,12 @@ export default function NewsItem(props) {
                 className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700" >
                 <a href={link} target='_blank' rel='noreferrer'>
                     <div
-                        className={`relative overflow-hidden bg-cover bg-no-repeat h-[161px] rounded-t-lg ${!imgurl ? 'url(https://fdn.gsmarena.com/imgroot/news/21/08/xiaomi-smart-home-india-annoucnements/-476x249w4/gsmarena_00.jpg)' : 'bg-[#101f26]'}`}
+                        className={`relative overflow-hidden bg-cover bg-no-repeat h-[161px] rounded-t-lg ${!imgurl ? 'url(${fakeImage})' : 'bg-[#101f26]'}`}
                         data-te-ripple-init
                         data-te-ripple-color="light">
                         <img
                             className="rounded-t-lg h-[161px] w-full object-cover"
-                            src={!imgurl ? 'https://fdn.gsmarena.com/imgroot/news/21/08/xiaomi-smart-home-india-annoucnements/-476x249w4/gsmarena_00.jpg' : imgurl}
+                            src={!imgurl ? fakeImage : imgurl}
                             alt="" height={161} />
                     </div>
                     <div className="p-6 relative">
