@@ -16,8 +16,10 @@ export default function News(props) {
 
   const api_Key = 'pub_15761798c8ba1de40eebb210f7a77a9a250e5'
 
+  const language = localStorage.getItem('selectedLanguage')
+
   const updateNews = async () => {
-    let url = `https://newsdata.io/api/1/news?apikey=${api_Key}&country=${props.country}&category=${props.category}`;
+    let url = `https://newsdata.io/api/1/news?apikey=${api_Key}&country=${props.country}&category=${props.category}&language=${language}`;
     setLoading(true);
     let data = await fetch(url);
     let parsedData = await data.json()
@@ -30,7 +32,7 @@ export default function News(props) {
 
   const fetchMoreData = async () => {
 
-    let url = `https://newsdata.io/api/1/news?apikey=${api_Key}&country=${props.country}&category=${props.category}&page=${page}`;
+    let url = `https://newsdata.io/api/1/news?apikey=${api_Key}&country=${props.country}&category=${props.category}&language=${language}&page=${page}`;
     setLoading(true)
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -49,7 +51,7 @@ export default function News(props) {
   return (
     <div className='container mx-auto'>
 
-      <h1 className='text-5xl font-semibold py-4 text-center'>Top {TitleCase(props.category)} Headlines</h1>
+      <h1 className='text-5xl font-semibold py-4 text-center capitalize'>Top {props.category} Headlines</h1>
 
       {loading && <div className='text-center'><Spinner /></div>}
 
