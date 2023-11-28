@@ -7,27 +7,13 @@ import LanguageSelector from './LanguageSelector';
 export default function Navbar(props) {
     let navitem = ['Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology', 'Environment', 'Food', 'Politics', 'World'] //data
 
-
-    const location = useLocation();
-    const [selectedOption, setSelectedOption] = useState("/");
-
-    useEffect(() => {
-        setSelectedOption(location.pathname);
-    }, [location]);
-
-
-
-    const handleLanguageChange = (language) => {
-        localStorage.setItem('selectedLanguage', language);
-        setSelectedLanguage(language);
-
-        // Call the updateNews function here or pass it to another component as needed
-        updateNews();
+    const handleLanguageChange = (newLanguage) => {
+        
     };
 
     return (
         <>
-            <nav className="bg-white border-gray-200 dark:bg-gray-900">
+            <nav className="bg-white border-gray-200 dark:bg-gray-900 fixed w-full z-10">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <a href="/" className="flex items-center">
                         <span className='self-center whitespace-nowrap dark:text-white logo sm:text-3xl'>News Valuation</span>
@@ -41,12 +27,12 @@ export default function Navbar(props) {
                         </button>
                     </div>
                     <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-language">
-                        <ul className="flex flex-col font-medium p-2 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        <ul className="flex flex-col items-center font-medium p-2 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             <li>
-                                <Link to="/" className="block py-2 pl-3 pr-4 text-white  rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</Link>
+                                <Link to="/" className="block py-2 pl-3 pr-4 text-gray-900  dark:text-white rounded md:bg-transparent md:p-0" aria-current="page">General</Link>
                             </li>
                             <li>
-                                <div id="dropdownDelayButton" data-dropdown-toggle="dropdownDelay" data-dropdown-delay="500" data-dropdown-trigger="hover" className="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Category <ChevronDown /> </div>
+                                <div id="dropdownDelayButton" data-dropdown-toggle="dropdownDelay" data-dropdown-delay="500" data-dropdown-trigger="hover" className="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"><p>Category</p> <span className='ml-1'><ChevronDown size={20} /></span> </div>
 
                                 <div id="dropdownDelay" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow sm:w-44 dark:bg-gray-700 w-11/12">
 

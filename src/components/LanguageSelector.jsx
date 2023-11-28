@@ -1,23 +1,41 @@
 // LanguageSelector.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import fetchData from './News/Fetchdata';
 
 const LanguageSelector = ({ onLanguageChange }) => {
     // Default language is Gujarati
-    const [selectedLanguage, setSelectedLanguage] = useState(
-        localStorage.getItem('selectedLanguage') || 'gu'
-    );
+    const storedLanguage = localStorage.getItem('selectedLanguage');
+    const defaultLanguage = storedLanguage || 'gu'; // Default to Gujarati if not defined
+
+    const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
+
+    useEffect(() => {
+        // Update the language in the parent component or perform other actions
+        onLanguageChange(selectedLanguage);
+
+        // Update localStorage
+        localStorage.setItem('selectedLanguage', selectedLanguage);
+    }, [selectedLanguage, onLanguageChange]);
 
     const handleLanguageChange = (event) => {
         const newLanguage = event.target.value;
         setSelectedLanguage(newLanguage);
         localStorage.setItem('selectedLanguage', newLanguage);
+
+        const pageUrl = window.location.href;
+        const urlParts = new URL(pageUrl);
+        const pathArray = urlParts.pathname.split('/').filter(part => part !== '');
+
+        var lastSlug = pathArray[pathArray.length - 1];
+        if (lastSlug == undefined) {
+            lastSlug = "top";
+        }
+        // Call the updateNews function here or pass it to another component as needed
+        fetchData(lastSlug);
+        // Reload the page
+        window.location.reload();
     };
 
-
-    const handleNavigation = (event) => {
-        const selectedValue = event.target.value;
-        setSelectedOption(selectedValue);
-    };
 
     return (
         <div>

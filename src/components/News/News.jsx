@@ -1,46 +1,52 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
 import NewsItem from './NewsItem'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Spinner } from 'flowbite-react';
+import fetchData from './Fetchdata';
 
 export default function News(props) {
-
-  const TitleCase = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
 
   const [articles, setArticles] = useState([])
   const [loading, setLoading] = useState(true)
   const [page, setPage] = useState(1)
   const [totalResults, setTotalResults] = useState(0)
 
-  const api_Key = 'pub_15761798c8ba1de40eebb210f7a77a9a250e5'
+  const pageUrl = window.location.href;
+  const urlParts = new URL(pageUrl);
+  const pathArray = urlParts.pathname.split('/').filter(part => part !== '');
 
-  const language = localStorage.getItem('selectedLanguage')
+  var lastSlug = pathArray[pathArray.length - 1];
+  if (lastSlug == undefined) {
+    lastSlug = "top";
+  }
 
   const updateNews = async () => {
-    let url = `https://newsdata.io/api/1/news?apikey=${api_Key}&country=${props.country}&category=${props.category}&language=${language}`;
-    setLoading(true);
-    let data = await fetch(url);
-    let parsedData = await data.json()
-
-    setArticles(parsedData.results)
-    setLoading(false)
-    setPage(parsedData.nextPage)
-    setTotalResults(parsedData.totalResults)
+    try {
+      const parsedData = await fetchData(lastSlug);
+      setArticles(parsedData.results);
+      setPage(parsedData.nextPage);
+      setTotalResults(parsedData.totalResults);
+      setLoading(false);
+    } catch (error) {
+      // Handle error
+      console.error('Error updating news:', error);
+      setLoading(false);
+    }
   }
 
   const fetchMoreData = async () => {
-
-    let url = `https://newsdata.io/api/1/news?apikey=${api_Key}&country=${props.country}&category=${props.category}&language=${language}&page=${page}`;
-    setLoading(true)
-    let data = await fetch(url);
-    let parsedData = await data.json();
-
-    setPage(parsedData.nextPage)
-    setArticles(articles.concat(parsedData.results))
-    setTotalResults(parsedData.totalResults)
-    setLoading(false)
+    try {
+      const parsedData = await fetchData(lastSlug, page);
+      setPage(parsedData.nextPage);
+      setArticles(articles.concat(parsedData.results));
+      setTotalResults(parsedData.totalResults);
+      setLoading(false);
+    } catch (error) {
+      // Handle error
+      console.error('Error fetching more data:', error);
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
@@ -49,9 +55,9 @@ export default function News(props) {
 
 
   return (
-    <div className='container mx-auto'>
+    <div className='container mx-auto pt-20'>
 
-      <h1 className='text-5xl font-semibold py-4 text-center capitalize'>Top {props.category} Headlines</h1>
+      <h1 className='text-2xl font-semibold py-4 text-center capitalize'>{props.category} Headlines</h1>
 
       {loading && <div className='text-center'><Spinner /></div>}
 
@@ -64,11 +70,8 @@ export default function News(props) {
 
         <div className='flex flex-wrap'>
           {articles.map((element, index) => {
-            return (<div className='sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4'>
-
-              <NewsItem key={index} title={element.title} description={element.description} imgurl={element.image_url} publishedAt={element.pubDate} link={element.link} source={element.source_id} />
-
-            </div>)
+            return (
+              <NewsItem title={element.title} description={element.description} imgurl={element.image_url} publishedAt={element.pubDate} link={element.link} source={element.source_id} />)
           })}
         </div>
 

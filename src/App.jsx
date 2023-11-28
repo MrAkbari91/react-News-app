@@ -19,20 +19,17 @@ export default function App() {
         <Navbar />
         <LoadingBar height={3} color='#f11946' progress={progress} />
         <Routes>
-          <Route exact path='/' element={<News setProgress={setProgress} key='top' country='in' category='top' pageSize='20' />}></Route>
-          <Route exact path='/General' element={<News setProgress={setProgress} key='top' country='in' category='' pageSize='20' />}></Route>
-
-          <Route exact path='/business' element={<News setProgress={setProgress} key='business' country='in' category='business' />}></Route>
-          <Route exact path='/entertainment' element={<News setProgress={setProgress} key='entertainment' country='in' category='entertainment' />}></Route>
-          <Route exact path='/health' element={<News setProgress={setProgress} key='health' country='in' category='health' />}></Route>
-          <Route exact path='/science' element={<News setProgress={setProgress} key='science' country='in' category='science' />}></Route>
-          <Route exact path='/sports' element={<News setProgress={setProgress} key='sports' country='in' category='sports' />}></Route>
-          <Route exact path='/technology' element={<News setProgress={setProgress} key='technology' country='in' category='technology' />}></Route>
-
-          <Route exact path='/environment' element={<News setProgress={setProgress} key='environment' country='in' category='environment' />}></Route>
-          <Route exact path='/food' element={<News setProgress={setProgress} key='food' country='in' category='food' />}></Route>
-          <Route exact path='/politics' element={<News setProgress={setProgress} key='politics' country='in' category='politics' />}></Route>
-          <Route exact path='/world' element={<News setProgress={setProgress} key='world' country='in' category='world' />}></Route>
+          <Route exact path='/' element={<News setProgress={setProgress} key='top' category='top' />}></Route>
+          <Route exact path='/business' element={<News setProgress={setProgress} key='business' category='business' />}></Route>
+          <Route exact path='/entertainment' element={<News setProgress={setProgress} key='entertainment' category='entertainment' />}></Route>
+          <Route exact path='/health' element={<News setProgress={setProgress} key='health' category='health' />}></Route>
+          <Route exact path='/science' element={<News setProgress={setProgress} key='science' category='science' />}></Route>
+          <Route exact path='/sports' element={<News setProgress={setProgress} key='sports' category='sports' />}></Route>
+          <Route exact path='/technology' element={<News setProgress={setProgress} key='technology' category='technology' />}></Route>
+          <Route exact path='/environment' element={<News setProgress={setProgress} key='environment' category='environment' />}></Route>
+          <Route exact path='/food' element={<News setProgress={setProgress} key='food' category='food' />}></Route>
+          <Route exact path='/politics' element={<News setProgress={setProgress} key='politics' category='politics' />}></Route>
+          <Route exact path='/world' element={<News setProgress={setProgress} key='world' category='world' />}></Route>
           <Route path='*' element={<PageNotFound />}></Route>
         </Routes>
 
