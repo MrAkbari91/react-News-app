@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaMoon, FaSun } from "react-icons/fa6";
+import { Moon, Sun } from "lucide-react";
 
 
 const DarkModeToggle = (props) => {
@@ -43,8 +43,8 @@ const DarkModeToggle = (props) => {
     return (
         <>
             <button id='theme-toggle' type='button' onClick={toggleDarkMode}
-                className='dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg p-2.5'>
-                {theme === 'dark' ? <FaMoon /> : <FaSun />}
+                className='dark:text-gray-400 focus:outline-none rounded-lg p-2.5'>
+                {theme === 'dark' ? <Moon /> : <Sun />}
             </button>
         </>
     )

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Comforter+Brush&family=Creepster&family=Dancing+Script&family=Great+Vibes&family=Indie+Flower&family=Kalam:wght@300&family=Nothing+You+Could+Do&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap');
 
 .logo {
     font-family: 'Caveat', cursive;
@@ -22,24 +23,4 @@
 
 .pagenotfount {
     font-family: 'Nothing You Could Do', cursive;
-}
-
-.news-card-heading {
-    overflow: hidden;
-    max-height: 8rem;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    overflow: hidden !important;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-}
-
-.news-card-description {
-    overflow: hidden;
-    max-height: 8rem;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    overflow: hidden !important;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
 }

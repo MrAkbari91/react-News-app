@@ -12,22 +12,26 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "flowbite": "^1.8.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "flowbite": "^1.8.1",
     "flowbite-react": "^0.5.0",
+    "lucide-react": "^0.293.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-infinite-scroll-component": "^6.1.0",
     "react-router-dom": "^6.6.1",
-    "react-scripts": "5.0.1",
     "react-top-loading-bar": "^2.3.1",
+    "vite": "^5.0.2",
+    "vite-plugin-svgr": "^4.2.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "vite build",
+    "test": "vite test",
+    "eject": "vite eject",
+    "serve": "vite preview"
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +54,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.27",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.3",
+    "yarn": "^1.22.21"
   }
 }
