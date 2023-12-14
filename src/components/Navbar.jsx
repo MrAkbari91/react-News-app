@@ -8,15 +8,15 @@ export default function Navbar(props) {
     let navitem = ['Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology', 'Environment', 'Food', 'Politics', 'World'] //data
 
     const handleLanguageChange = (newLanguage) => {
-        
+
     };
 
     return (
         <>
-            <nav className="bg-white border-gray-200 dark:bg-gray-900 fixed w-full z-10">
+            <nav className="bg-white border-gray-200 dark:bg-gray-900 fixed w-full z-10 shadow">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <a href="/" className="flex items-center">
-                        <span className='self-center whitespace-nowrap dark:text-white logo sm:text-3xl'>News Valuation</span>
+                        <span className='self-center sm:text-3xl whitespace-nowrap dark:text-white logo'>News Valuation</span>
                     </a>
                     <div className="flex items-center md:order-2">
                         <LanguageSelector onLanguageChange={handleLanguageChange} />
@@ -27,7 +27,7 @@ export default function Navbar(props) {
                         </button>
                     </div>
                     <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-language">
-                        <ul className="flex flex-col items-center font-medium p-2 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        <ul className="flex flex-col items-center font-medium p-2 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-transparent">
                             <li>
                                 <Link to="/" className="block py-2 pl-3 pr-4 text-gray-900  dark:text-white rounded md:bg-transparent md:p-0" aria-current="page">General</Link>
                             </li>

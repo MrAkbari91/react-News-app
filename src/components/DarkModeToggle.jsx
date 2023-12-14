@@ -11,12 +11,10 @@ const DarkModeToggle = (props) => {
                 document.documentElement.classList.add('dark');
                 localStorage.setItem('theme', 'dark');
                 setTheme('dark');
-                props.showAlert('dark mode enable');
             } else {
                 document.documentElement.classList.remove('dark');
                 localStorage.setItem('theme', 'light');
                 setTheme('light');
-                props.showAlert('light mode enable');
             }
             // if NOT set via local storage previously
         } else {

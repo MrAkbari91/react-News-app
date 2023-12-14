@@ -7,6 +7,7 @@ import 'flowbite/dist/flowbite.min.css'
 import 'flowbite/dist/flowbite'
 import News from './components/News/News';
 import LoadingBar from 'react-top-loading-bar';
+import FooterNav from './components/FooterNav';
 
 
 
@@ -15,7 +16,7 @@ export default function App() {
 
   return (
     <Router>
-      <div className='dark:bg-gray-800 dark:text-gray-100'>
+      <div>
         <Navbar />
         <LoadingBar height={3} color='#f11946' progress={progress} />
         <Routes>
@@ -32,7 +33,7 @@ export default function App() {
           <Route exact path='/world' element={<News setProgress={setProgress} key='world' category='world' />}></Route>
           <Route path='*' element={<PageNotFound />}></Route>
         </Routes>
-
+        <FooterNav />
       </div>
     </Router>
   )
