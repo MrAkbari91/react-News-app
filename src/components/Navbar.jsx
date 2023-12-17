@@ -7,13 +7,11 @@ import LanguageSelector from './LanguageSelector';
 export default function Navbar(props) {
     let navitem = ['Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology', 'Environment', 'Food', 'Politics', 'World'] //data
 
-    const handleLanguageChange = (newLanguage) => {
-
-    };
+    const handleLanguageChange = (newLanguage) => {};
 
     return (
         <>
-            <nav className="bg-white border-gray-200 dark:bg-gray-900 fixed w-full z-10 shadow">
+            <nav className="sticky top-2 w-11/12 z-10 m-auto bg-white border-gray-200 dark:bg-gray-900 rounded-lg shadow">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <a href="/" className="flex items-center">
                         <span className='self-center sm:text-3xl whitespace-nowrap dark:text-white logo'>News Valuation</span>
