@@ -53,7 +53,7 @@ export default function News(props) {
   }, []);
 
   return (
-    <div className="container mx-auto pt-20">
+    <div className="dark:bg-gray-950 container mx-auto pt-5">
       <h1 className="text-2xl font-semibold py-4 text-center capitalize">
         {props.category} Headlines
       </h1>
@@ -69,7 +69,7 @@ export default function News(props) {
         next={fetchMoreData}
         hasMore={articles.length !== totalResults}
         loader={
-          <div className="text-center">
+          <div className="text-center py-4">
             <Spinner />
           </div>
         }
@@ -77,14 +77,7 @@ export default function News(props) {
         <div className="flex flex-wrap">
           {articles.map((element, index) => {
             return (
-              <NewsItem
-                title={element.title}
-                description={element.description}
-                imgurl={element.image_url}
-                publishedAt={element.pubDate}
-                link={element.link}
-                source={element.source_id}
-              />
+              <NewsItem news={element} />
             );
           })}
         </div>
